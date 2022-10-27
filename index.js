@@ -169,7 +169,7 @@ logoMyDocsBtn.addEventListener("click", () => {
     logoMyDocsBtn.classList.add("bg-color");
     logoNewDocBtn.classList.remove("bg-color");
 
-    docs.innerHTML = `<div class="docs-nav">
+    docs.innerHTML = `<div class="docs-nav" id="my-docs-nav">
                             <div class = "title-nav">
                                 <span class="title">My Docs</span>
                             </div>
@@ -178,11 +178,90 @@ logoMyDocsBtn.addEventListener("click", () => {
                                 <button class="search-btn" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </div>
                         </div>
-                        <div class="my-docs"> 
+                        <div class="my-docs-container"> 
+                            <div class="my-doc">
+                            <div class="my-doc-content">
+                                <h3 class="my-doc-title">Title of the doc</h3>
+                                <div class="my-doc-data">Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here</div>
+                                </div>
+                                <div class="my-doc-btn">
+                                    <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>  
+                                </div>
+                            </div>
+
+                            <div class="my-doc">
+                            <div class="my-doc-content">
+                                <h3 class="my-doc-title">Title of the doc</h3>
+                                <div class="my-doc-data">Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here</div>
+                                </div>
+                                <div class="my-doc-btn">
+                                    <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>  
+                                </div>
+                            </div>
+
+
+                            <div class="my-doc">
+                            <div class="my-doc-content">
+                                <h3 class="my-doc-title">Title of the doc</h3>
+                                <div class="my-doc-data">Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here</div>
+                                </div>
+                                <div class="my-doc-btn">
+                                    <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>  
+                                </div>
+                            </div>
+
+
+
+                            <div class="my-doc">
+                            <div class="my-doc-content">
+                                <h3 class="my-doc-title">Title of the doc</h3>
+                                <div class="my-doc-data">Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here</div>
+                                </div>
+                                <div class="my-doc-btn">
+                                    <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>  
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="my-doc">
+                            <div class="my-doc-content">
+                                <h3 class="my-doc-title">Title of the doc</h3>
+                                <div class="my-doc-data">Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here, Content here</div>
+                                </div>
+                                <div class="my-doc-btn">
+                                    <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>  
+                                </div>
+                            </div>
+
+
+
+                           
                         </div>`;
+
+
+const newDocsContainer = docs.querySelector(".my-docs-container")
+const navbar = docs.querySelector(".docs-nav")
+                        
+newDocsContainer.addEventListener("scroll", () => {
+
+    if(newDocsContainer.scrollTop >= 30) {
+    
+        navbar.classList.add("nav-black");
+        console.log("dsd")
+    }
+
+    else {
+        navbar.classList.remove("nav-black")
+    }
+
+
+    console.log("scroll")
 
 })
 
+})
 
 
 
