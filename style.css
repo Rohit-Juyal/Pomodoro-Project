@@ -66,6 +66,7 @@
 .docs-container {
     background-color: #fff;
     width: 84%;
+    height: 100vh;
     transition: padding-right .7s ease-in-out;
 }
 
@@ -76,7 +77,7 @@
 }
 
 .docs {
-    margin: 0;
+    /* margin-bottom: 1rem; */
 }
 
 .docs-nav {
@@ -144,6 +145,14 @@
     padding: 1rem;
 }
 
+.new-doc-main {
+    display: block;
+}
+
+.my-doc-main {
+    display: none;
+}
+
 
 
 .search {
@@ -177,11 +186,15 @@
 
 
 .my-docs-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;  
-    max-height: 89vh;
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-gap: 1rem;
+    /* flex-wrap: wrap; */
+    /* justify-content: flex-start;   */
+    max-height: 87vh;
     overflow: auto;
+    margin: 0 1rem;
 }
 
 .my-docs-container {
@@ -195,12 +208,12 @@
 .my-doc {
     display: flex;
     flex-direction: column;
-    width: 270px;
-    height: 280px;
+    max-width: 280px;
+    height: 300px;
     border: 1px solid black;
     border-radius: 10px;
     position: relative;
-    margin: 1rem 1.5rem;
+    /* margin: 1rem 1.5rem; */
 }
 
 .my-doc-content {
@@ -267,7 +280,8 @@
 .hamburger-menu {
     height: 100vh;
     background-color: #DADDE2;
-    width: 4rem;
+    min-width: 4rem;
+    /* padding-right: 10rem; */
     position: relative;
     /* display: none; */
 }
