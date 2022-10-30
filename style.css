@@ -15,7 +15,7 @@
 }
 
 .logo {
-    width: 12rem;
+    width: 8rem;
     height: 100vh;
     background-color: #DADDE2;
 }
@@ -30,7 +30,7 @@
     padding-top: .5rem;
     padding-bottom: 2rem;
     letter-spacing: 1px;
-    font-size: 2rem;
+    font-size: 1.7rem;
 }
 
 .logo-btns {
@@ -40,8 +40,8 @@
 }
 
 .logo-btns button {
-    padding: 0.2rem 1rem;
-    font-size: 1.2rem;
+    padding: 0.2rem .8rem;
+    font-size: 1.1rem;
     margin-bottom: .7rem;
     border: none;
     cursor: pointer;
@@ -65,19 +65,26 @@
 
 .docs-container {
     background-color: #fff;
-    width: 84%;
+    width: 88%;
     height: 100vh;
-    transition: padding-right .7s ease-in-out;
+    padding-right: 0;
 }
-
 
 .docs-container.shrink {
-    padding-right: 23rem;
-    transition: padding-right .7s ease-in-out;
+    padding-right: 20rem;
 }
 
+
+
+
 .docs {
-    /* margin-bottom: 1rem; */
+    width: 100%;
+    transition: width .7s ease-in-out;
+}
+
+.docs.shrink {
+    width: 72%;
+    transition: width .7s ease-in-out;
 }
 
 .docs-nav {
@@ -86,6 +93,7 @@
     align-items: center;
     padding: 1rem ;
     transition: background-color .5s ease-in-out;
+    width: 101%;
 }
 
 #my-docs-nav.nav-black {
@@ -112,6 +120,7 @@
 
 .new-doc-btns {
     display: flex;
+    margin-right: 1rem;
 }
 
 .new-doc-btns button{
@@ -154,15 +163,30 @@
 }
 
 
+.modal-container {
+    max-width: 200px;
+    /* width: 50%; */
+    /* top: 50%;
+    right: 50%; */
+    /* transform: translate(-50%,-50%); */
+    /* margin: 4rem; */
+}
+
+.modal {
+    /* position: absolute; */
+}
+
+
 
 .search {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 1rem;
 }
 
 .search .search-bar {
-    min-width: 300px;
+    min-width: 100px;
     border-radius: 5rem;
     background-color: white;
     border: 1px solid black;
@@ -186,11 +210,13 @@
 
 
 .my-docs-container {
-    /* display: flex; */
-    display: grid;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    /* display: grid;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    grid-gap: 1rem;
-    /* flex-wrap: wrap; */
+    grid-gap: 1rem; */
+    flex-wrap: wrap;
     /* justify-content: flex-start;   */
     max-height: 87vh;
     overflow: auto;
@@ -208,12 +234,17 @@
 .my-doc {
     display: flex;
     flex-direction: column;
-    max-width: 280px;
+    /* min-width: 294px; */
+    width: 295px;
     height: 300px;
     border: 1px solid black;
     border-radius: 10px;
     position: relative;
-    /* margin: 1rem 1.5rem; */
+    margin: 1rem 1rem;
+}
+
+.my-doc.shrink {
+    width: 280px;
 }
 
 .my-doc-content {
@@ -445,3 +476,7 @@
     border: none;
     cursor: pointer;
 }
+
+
+
+
