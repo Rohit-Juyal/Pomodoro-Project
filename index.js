@@ -8,14 +8,10 @@ let startTimer = undefined;
 function timer() {
     if(workSeconds.innerText != 0) {
         workSeconds.innerText--;
-        console.log(workSeconds.innerText);
-        console.log(workMinutes.innerText);
     }
     else if (workSeconds.innerText == 0 && workMinutes.innerText != 0) {
         workSeconds.innerText = 59;
         workMinutes.innerText--;
-        console.log(workSeconds.innerText);
-        console.log(workMinutes.innerText);
     }
     
     if (workMinutes.innerText == 0 && workSeconds.innerText == 0) {
@@ -35,12 +31,27 @@ startBtn.addEventListener("click", () => {
         pauseTimer();
         startBtn.innerHTML = "Start";
     }
+
+
 })
 
 function pauseTimer() {
     clearInterval(startTimer);
     startTimer = undefined;
 }
+
+
+var audio1  = new Audio('https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/click.mp3');
+var audio2 = new Audio('https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/clickUp.mp3')
+
+startBtn.addEventListener("mousedown", () => {
+    audio2.play();
+})
+startBtn.addEventListener("mouseup", () => {
+    audio1.play();
+})
+
+
     
 
 
@@ -123,20 +134,6 @@ next.addEventListener("click", () => {
 
 
 
-// hamburger 
-
-
-document.getElementById("checkbox").addEventListener("click", () => {
-    if(document.getElementById("checkbox").checked === true)
-    {
-        document.querySelector(".docs-container").classList.toggle('shrink');
-    }
-    else {
-        document.querySelector(".docs-container").classList.toggle('shrink');
-    }
-
-    console.log("hey")
-})
 
 
 
@@ -161,50 +158,9 @@ logoMyDocsBtn.addEventListener("click", () => {
 
     document.querySelector(".new-doc-main").style.display = "none"
     document.querySelector(".my-docs-main").style.display = "block"
-
-
-
-
-// const newDocsContainer = docs.querySelector(".my-docs-container");
-// const navbar = docs.querySelector(".docs-nav");
-                        
-// newDocsContainer.addEventListener("scroll", () => {
-
-//     if(newDocsContainer.scrollTop >= 10) {
     
-//         navbar.classList.add("nav-black");
-//         console.log("dsd")
-//     }
-
-//     else {
-//         navbar.classList.remove("nav-black")
-//     }
-
-
-//     console.log("scroll")
-
-// })
-
 })
 
-
-
-// const data = document.getElementById("new-doc-data");
-
-// saveBtn.addEventListener("click", () => {
-    //     console.log("jj");
-    //     document.querySelector(".my-doc-content").style.color =
-    //      "red";
-    //     document.querySelector(".my-doc-content").innerText = data.value;
-//     console.log(document.querySelector(".my-doc-content"))
-//     })
-
-// let cancelBtn = document.getElementById("cancel");
-
-// cancelBtn.addEventListener("click", () => {
-    //     data.value = ""
-    // })
-    
     
 const titleInput = document.getElementById("title");
 const docInput = document.getElementById("new-doc-data");  
@@ -217,7 +173,35 @@ class Doc {
     }
 }
 
+function getDocs() {
+    let docs;
+    if (localStorage.getItem("docApp.docs") === null) {
+        notes = []; 
+    } 
+    else {
+        notes = JSON.parse(localStorage.getItem("docApp.docs"))
+    }
+    return notes;
 
+}
+
+
+function addDocToLS(doc) {
+    const docs = getDocs();
+    docs.push(doc);
+    localStorage.setItem("docApp.docs", JSON.stringify(docs))
+}
+
+
+function removeDoc(id) {
+    const docs = getDocs();
+    docs.forEach((doc, index) => {
+        if(doc.id === id) {
+            docs.slice(index, 1);
+        } 
+        localStorage.setItem("docApp.docs", JSON.stringify(docs));
+    })
+} 
 
 
 const myDocsContainer = document.querySelector(".my-docs-container");
@@ -240,14 +224,27 @@ function addNewDoc(doc) {
 }
 
 
+function displayDocs() {
+    const docs = getDocs();
+    docs.forEach(note => {
+        addNewDoc(note);
+    })
+}
+
+
 myDocsContainer.addEventListener("click", (e) => {
     if(e.target.classList.contains("fa-trash")) {
         const currentDoc = e.target.closest(".my-doc");
+        const id = currentDoc.querySelector("span");
         currentDoc.remove();
+        console.log(id);
+        removeDoc(Number(id));
     }
 
 })
 
+
+document.addEventListener("DOMContentLoaded", displayDocs)
 
 
 
@@ -261,6 +258,7 @@ saveBtn.addEventListener("click", () => {
     if(titleInput.value != "" && docInput.value != "") {
         const newDoc = new Doc(titleInput.value, docInput.value);
         addNewDoc(newDoc);
+        addDocToLS(newDoc);
         titleInput.value = "";
         docInput.value = "";
         titleInput.focus();
@@ -301,4 +299,34 @@ myDocsContainer.addEventListener("scroll", () => {
 
     console.log("scroll")
 
+})
+
+
+
+// hamburger 
+
+
+
+document.getElementById("checkbox").addEventListener("click", () => {
+    if(document.getElementById("checkbox").checked === true)
+    {
+        document.querySelector(".docs").classList.toggle('shrink');
+
+        const myDocs = document.querySelectorAll(".my-doc");
+        for (let i = 0; i < myDocs.length; i++) {
+            myDocs[i].classList.toggle("shrink");
+        }
+        
+        
+    }
+    else {
+        document.querySelector(".docs").classList.toggle('shrink');
+        
+        const myDocs = document.querySelectorAll(".my-doc");
+        for (let i = 0; i < myDocs.length; i++) {
+            myDocs[i].classList.toggle("shrink");
+        }
+    }
+
+    console.log("hey")
 })
