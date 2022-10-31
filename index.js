@@ -60,7 +60,7 @@ startBtn.addEventListener("mouseup", () => {
 
 // Music Player
 
-const title = document.getElementById("title");
+const audioTitle = document.getElementById("audio-title");
 const cover = document.getElementById("cover");
 const audio = document.getElementById("audio");
 const previous = document.getElementById("previous");
@@ -74,7 +74,7 @@ let songIndex = 0;
 // loadSong(songs[songIndex]);
 
 function loadSong(song) {
-    title.innerText = song;
+    audioTitle.innerText = song;
     audio.src = `music/${song}.mp3`;
     cover.src = `images/${song}.jpg`;
 }
@@ -176,12 +176,12 @@ class Doc {
 function getDocs() {
     let docs;
     if (localStorage.getItem("docApp.docs") === null) {
-        notes = []; 
+        docs = []; 
     } 
     else {
-        notes = JSON.parse(localStorage.getItem("docApp.docs"))
+        docs = JSON.parse(localStorage.getItem("docApp.docs"))
     }
-    return notes;
+    return docs;
 
 }
 
@@ -197,7 +197,7 @@ function removeDoc(id) {
     const docs = getDocs();
     docs.forEach((doc, index) => {
         if(doc.id === id) {
-            docs.slice(index, 1);
+            docs.splice(index, 1);
         } 
         localStorage.setItem("docApp.docs", JSON.stringify(docs));
     })
@@ -226,8 +226,8 @@ function addNewDoc(doc) {
 
 function displayDocs() {
     const docs = getDocs();
-    docs.forEach(note => {
-        addNewDoc(note);
+    docs.forEach(doc => {
+        addNewDoc(doc);
     })
 }
 
@@ -235,7 +235,7 @@ function displayDocs() {
 myDocsContainer.addEventListener("click", (e) => {
     if(e.target.classList.contains("fa-trash")) {
         const currentDoc = e.target.closest(".my-doc");
-        const id = currentDoc.querySelector("span");
+        const id = currentDoc.querySelector("span").textContent;
         currentDoc.remove();
         console.log(id);
         removeDoc(Number(id));
@@ -275,6 +275,31 @@ saveBtn.addEventListener("click", () => {
     }
 
 
+})
+
+
+
+const searchBar = document.querySelector(".search-bar");
+
+searchBar.addEventListener("input", () => {
+    let value = searchBar.value.toLowerCase();
+    console.log(value);
+
+    const myDoc = document.querySelectorAll(".my-doc");
+    console.log(myDoc)
+
+    Array.from(myDoc).forEach(doc => {
+        let docText = doc.querySelectorAll(".my-doc-data")[0].innerText.toLowerCase();
+        let docTitle = doc.querySelectorAll(".my-doc-title")[0].innerText.toLowerCase();
+        console.log(docText);
+
+        if(docText.includes(value) || docTitle.includes(value)) {
+            doc.style.display = "block"
+        }
+        else {
+            doc.style.display = "none";
+        }
+    })
 })
 
 
