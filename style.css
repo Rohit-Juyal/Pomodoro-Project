@@ -65,7 +65,7 @@
 
 .docs-container {
     background-color: #fff;
-    width: 88%;
+    width: 92%;
     height: 100vh;
     padding-right: 0;
 }
@@ -78,12 +78,12 @@
 
 
 .docs {
-    width: 100%;
+    width: 96%;
     transition: width .7s ease-in-out;
 }
 
 .docs.shrink {
-    width: 72%;
+    width: 69.3%;
     transition: width .7s ease-in-out;
 }
 
@@ -93,7 +93,7 @@
     align-items: center;
     padding: 1rem ;
     transition: background-color .5s ease-in-out;
-    width: 101%;
+    width: 100.3%;
 }
 
 #my-docs-nav.nav-black {
@@ -105,7 +105,7 @@
     font-size: 1.8rem;
     font-weight: 700;
     letter-spacing: 1px;
-    width: 60%;
+    width: 100%;
     color: #43655A;
     border: none;
     outline: none;
@@ -162,22 +162,6 @@
     display: none;
 }
 
-
-.modal-container {
-    max-width: 200px;
-    /* width: 50%; */
-    /* top: 50%;
-    right: 50%; */
-    /* transform: translate(-50%,-50%); */
-    /* margin: 4rem; */
-}
-
-.modal {
-    /* position: absolute; */
-}
-
-
-
 .search {
     display: flex;
     align-items: center;
@@ -187,6 +171,7 @@
 
 .search .search-bar {
     min-width: 100px;
+    /* width: 500px; */
     border-radius: 5rem;
     background-color: white;
     border: 1px solid black;
@@ -241,10 +226,12 @@
     border-radius: 10px;
     position: relative;
     margin: 1rem 1rem;
+    transition: width .7s ease-in-out;
 }
 
 .my-doc.shrink {
     width: 280px;
+    transition: width .7s ease-in-out;
 }
 
 .my-doc-content {
@@ -308,25 +295,16 @@
 
 
 
-.hamburger-menu {
+/* .hamburger-menu {
     height: 100vh;
     background-color: #DADDE2;
     min-width: 4rem;
-    /* padding-right: 10rem; */
+    padding-right: 10rem;
     position: relative;
-    /* display: none; */
+    display: none;
 }
 
-.hamburger-menu input {
-    width: 2.2rem;
-    height: 2.2rem;
-    position: absolute;
-    left: 1.2rem;
-    top:.5rem;
-    cursor: pointer;
-    z-index: 3;
-    opacity: 0;
-}
+
 
 .hamburger-icon .open{
     position: absolute;
@@ -356,7 +334,9 @@
 
 .hamburger-menu input[type="checkbox"]:checked~ .hamburger-icon .close {
     display: block;
-}
+}  */
+
+
 
 
 
@@ -370,10 +350,40 @@
     background-color: #DADDE2;
     transform: translateX(88%);
     position: absolute;
-    right: 0%;
-    top: 0%;
+    right: 0;
+    padding: 0 3rem;
     transition: transform .7s ease-in-out, width .7s ease-in-out;
 }
+
+
+.tools input[type="checkbox"] {
+    width: 2rem;
+    height: 1.8rem;
+    position: absolute;
+    left: .5rem;
+    top: 1rem;
+    cursor: pointer;
+    z-index: 3;
+    opacity: 0;
+}
+
+.tools .open {
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+    font-size: 1.8rem;
+}
+
+.tools .close {
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+    font-size: 1.8rem;
+    display: none;
+
+}
+
+
 
 .tools-content {
     min-height: 50vh;
@@ -480,3 +490,8 @@
 
 
 
+@media only screen and (max-width:800px) {
+    .my-doc {
+        width: 250px;
+    }
+}

@@ -134,6 +134,19 @@ next.addEventListener("click", () => {
 
 
 
+// tools
+
+// const checkbox = document.getElementById("checkbox");
+
+// checkbox.addEventListener("change", () => {
+//     let tools = document.querySelector(".tools");
+//     if(this.checked) {
+//         console.log("checked");
+//         tools.style.transform = "translateX(0%)"
+//     }
+// })
+
+
 
 
 
@@ -333,9 +346,15 @@ myDocsContainer.addEventListener("scroll", () => {
 
 
 document.getElementById("checkbox").addEventListener("click", () => {
+    let tools = document.querySelector(".tools");
+
     if(document.getElementById("checkbox").checked === true)
     {
         document.querySelector(".docs").classList.toggle('shrink');
+        tools.style.transform = "translateX(0%)";
+        document.querySelector(".open").style.display = "none";
+        document.querySelector(".close").style.display = "block";
+
 
         const myDocs = document.querySelectorAll(".my-doc");
         for (let i = 0; i < myDocs.length; i++) {
@@ -346,6 +365,9 @@ document.getElementById("checkbox").addEventListener("click", () => {
     }
     else {
         document.querySelector(".docs").classList.toggle('shrink');
+        tools.style.transform = "";
+        document.querySelector(".open").style.display = "block";
+        document.querySelector(".close").style.display = "none";
         
         const myDocs = document.querySelectorAll(".my-doc");
         for (let i = 0; i < myDocs.length; i++) {
