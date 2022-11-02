@@ -350,7 +350,7 @@ document.getElementById("checkbox").addEventListener("click", () => {
 
     if(document.getElementById("checkbox").checked === true)
     {
-        document.querySelector(".docs").classList.toggle('shrink');
+        document.querySelector(".docs-container").classList.toggle('shrink');
         tools.style.transform = "translateX(0%)";
         document.querySelector(".open").style.display = "none";
         document.querySelector(".close").style.display = "block";
@@ -364,7 +364,7 @@ document.getElementById("checkbox").addEventListener("click", () => {
         
     }
     else {
-        document.querySelector(".docs").classList.toggle('shrink');
+        document.querySelector(".docs-container").classList.toggle('shrink');
         tools.style.transform = "";
         document.querySelector(".open").style.display = "block";
         document.querySelector(".close").style.display = "none";
