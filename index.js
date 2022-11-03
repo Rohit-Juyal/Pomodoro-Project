@@ -1,3 +1,5 @@
+// Pomodoro timer
+
 const workMinutes = document.getElementById("work-minutes");
 const workSeconds = document.getElementById("work-seconds");
 const startBtn = document.getElementById("start");
@@ -134,32 +136,19 @@ next.addEventListener("click", () => {
 
 
 
-// tools
-
-// const checkbox = document.getElementById("checkbox");
-
-// checkbox.addEventListener("change", () => {
-//     let tools = document.querySelector(".tools");
-//     if(this.checked) {
-//         console.log("checked");
-//         tools.style.transform = "translateX(0%)"
-//     }
-// })
 
 
 
-
-
-// notes
+// Logo
 
 const docs = document.querySelector(".docs");
-
 const logoNewDocBtn = document.getElementById("logo-new-doc");
 const logoMyDocsBtn = document.getElementById("logo-my-docs");
 
 logoNewDocBtn.addEventListener("click", () => {
     logoNewDocBtn.classList.add("bg-color");
     logoMyDocsBtn.classList.remove("bg-color");
+
     document.querySelector(".new-doc-main").style.display = "block"
     document.querySelector(".my-docs-main").style.display = "none";
 })
@@ -174,10 +163,17 @@ logoMyDocsBtn.addEventListener("click", () => {
     
 })
 
-    
+ 
+
+
+// Docs
+
 const titleInput = document.getElementById("title");
 const docInput = document.getElementById("new-doc-data");  
-    
+const myDocsContainer = document.querySelector(".my-docs-container");
+const saveBtn = document.getElementById("save");
+
+
 class Doc {
     constructor(title,body) {
         this.title = title;
@@ -217,7 +213,6 @@ function removeDoc(id) {
 } 
 
 
-const myDocsContainer = document.querySelector(".my-docs-container");
 
     
 function addNewDoc(doc) {
@@ -259,11 +254,6 @@ myDocsContainer.addEventListener("click", (e) => {
 
 document.addEventListener("DOMContentLoaded", displayDocs)
 
-
-
-
-    
-let saveBtn = document.getElementById("save");
 
 saveBtn.addEventListener("click", () => {
 
@@ -374,6 +364,4 @@ document.getElementById("checkbox").addEventListener("click", () => {
             myDocs[i].classList.toggle("shrink");
         }
     }
-
-    console.log("hey")
 })
