@@ -196,10 +196,11 @@
 
 .my-doc {
     display: flex;
-    flex-grow: 1;
+    /* flex-grow: 1; */
     flex-direction: column;
-    min-width: 20%;
-    width: 295px;
+    /* min-width: 20%; */
+    max-width: 300px;
+    width: 280px;
     height: 300px;
     border: 1px solid black;
     border-radius: 10px;
@@ -340,10 +341,6 @@
     cursor: pointer;
     font-weight: 700;
 }
-
-
-
-
 
 
 
