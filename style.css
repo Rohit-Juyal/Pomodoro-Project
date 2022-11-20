@@ -194,9 +194,9 @@
 .my-doc {
     display: flex;
     flex-direction: column;
-    max-width: 300px;
-    width: 280px;
-    height: 280px;
+    /* max-width: 300px; */
+    width: 305px;
+    height: 320px;
     border: 1px solid black;
     border-radius: 10px;
     position: relative;
@@ -205,7 +205,7 @@
 }
 
 .my-doc.shrink {
-    width: 280px;
+    width: 295px;
     transition: width .7s ease-in-out;
 }
 
