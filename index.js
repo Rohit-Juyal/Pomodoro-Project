@@ -6,7 +6,6 @@ const startBtn = document.getElementById("start");
 
 let startTimer = undefined;
 
-
 function timer() {
     if(workSeconds.innerText != 0) {
         workSeconds.innerText--;
@@ -55,10 +54,6 @@ startBtn.addEventListener("mouseup", () => {
 
 
     
-
-
-
-
 
 // Music Player
 
@@ -163,7 +158,6 @@ logoMyDocsBtn.addEventListener("click", () => {
     
 })
 
- 
 
 
 // Docs
@@ -212,9 +206,7 @@ function removeDoc(id) {
     })
 } 
 
-
-
-    
+ 
 function addNewDoc(doc) {
     let myDoc = document.createElement("div");
     myDoc.classList.add("my-doc");
@@ -308,8 +300,6 @@ searchBar.addEventListener("input", () => {
 
 
 
-
-
 const navbar = document.getElementById("my-docs-nav");
                         
 myDocsContainer.addEventListener("scroll", () => {
@@ -332,8 +322,6 @@ myDocsContainer.addEventListener("scroll", () => {
 
 
 // hamburger 
-
-
 
 document.getElementById("checkbox").addEventListener("click", () => {
     let tools = document.querySelector(".tools");
